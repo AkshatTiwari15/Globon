@@ -29,7 +29,11 @@ node -v
 npm -v
 git -v    
 
-(iii) Run the Project Start the development server:  
+(iii) Install packages into the terminal to run:   
+cd globon  
+npm install react-router-dom  
+
+(iv) Run the Project Start the development server:  
 npm start  
 
 # Contribute
