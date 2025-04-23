@@ -1,10 +1,12 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Navbar, Start, Earth, TheThought, ContactUs, Footer } from './FrontPage';
 import './FrontPage.css';
 
 function App() {
   return (
+    <Router>
     <div className="Page01">
       <Navbar />
       <br /><br />
@@ -29,6 +31,7 @@ function App() {
       <ContactUs />
       <Footer />
     </div>
+    </Router>
   );
 }
 
