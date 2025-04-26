@@ -24,9 +24,9 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logo">GLOBON</div>
       <ul className="navlinks">
-        <li>
+        {/* <li>
           <Link to="/Services">Services</Link>
-        </li>
+        </li> */}
         <li onClick={Location} style={{ cursor: 'pointer' }}>
           Location
         </li>
@@ -109,9 +109,6 @@ const ContactUs = () => {
 
   return (
     <div>
-      {/* <div className="heading-container">
-        <div id="line2"></div><h1 id="creators"></h1><div id="line2"></div>
-      </div> */}
       <div className="services-container">
         {/* Registration Form */}
         <div className="left-form-box"> 
