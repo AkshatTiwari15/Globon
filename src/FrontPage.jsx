@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="logo">GLOBON</div>
+      <div className="logo"><Link to="/">GLOBON</Link></div>
       <ul className="navlinks">
         {/* <li>
           <Link to="/Services">Services</Link>
