@@ -1,9 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { Navbar, Start, Earth, TheThought, ContactUs, Footer } from './FrontPage';
-import './FrontPage.css';
-import LoginPage from "./Login";
+import { Navbar, Start, Earth, TheThought, ContactUs, Footer} from './components/FrontPage';
+import LoginPage from "./components/Login";
 
 function App() {
   return (

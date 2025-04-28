@@ -1,24 +1,40 @@
 import React, { useState, useEffect } from "react";
-import "./App";
-import "./App.css"; 
+import "./FrontPage.css"; 
 import { Link } from "react-router-dom";
-import earth from './images/earth.png';
+import earth from '../images/earth.png';
 
 
 const Navbar = () => {
   const Location = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        alert(`Latitude: ${latitude}, Longitude: ${longitude}`);
-      }, (error) => {
-        alert("Unable to retrieve your location. Please allow location access.");
-      });
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+  
+          try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`);
+            const data = await response.json();
+            const address = data.address;
+  
+            const city = address.city || address.town || address.village || address.hamlet || address.suburb || "Unknown city";
+            const country = address.country || "Unknown country";
+  
+            alert(`Latitude: ${latitude}\nLongitude: ${longitude}\nCity: ${city}\nCountry: ${country}`);
+          } catch (error) {
+            alert(`Latitude: ${latitude}\nLongitude: ${longitude}\n(Could not fetch city/country)`);
+          }
+        },
+        (error) => {
+          alert("Unable to retrieve your location. Please allow location access.");
+        }
+      );
     } else {
       alert("Geolocation is not supported by this browser.");
     }
   };
+  
+  
 
   return (
     <nav className="navbar">
